@@ -8,6 +8,9 @@ class Example:
         cordinates = (self.x, self.y, self.z)
         yield from cordinates
 
+    def getNameOfObject(self):
+        return type(self)
+
     @staticmethod
     def show_coridantes(name):
         print(f"hey {name}, how are you")
@@ -16,8 +19,11 @@ class Example:
     def from_iter(cls, iter):
         return cls(*iter)
 
-    def __str__(self) -> str:
-        return "{}-{}-{}".format(self.x, self.y, self.z)
+    # def __str__(self) -> str:
+    #     return "{}-{}-{}".format(self.x, self.y, self.z)
+
+    def getName(self):
+        return self.x
 
 
 example = Example("10", "20", "40")
@@ -27,4 +33,11 @@ for index, item in example:
 cordinates = (3, 4, 5)
 iterrated = example.from_iter(cordinates)
 print(iterrated)
+
 print(isinstance(example, Example))
+
+example2 = example.getNameOfObject()
+example2.__init__(example, "20", "20", "20")
+
+print(example2.getName(example))
+print(example)
