@@ -11,7 +11,9 @@ class Human:
         Human.name = "will change value of name"
         # another example to above, value of type will be Human class
         type(self).name = "this also will change value of name"
+    
 
+    
     def change_eye(self, eye):
         # we can also initiliza the value of the self in any method but it's praticale to use it inside init
         self.brows = "thick"
@@ -34,7 +36,8 @@ class Human:
 
     def __repr__(self) -> str:
         class_name = type(self).__name__
-        return f"{class_name}"
+        class_name2 = self.__class__
+        return f"{class_name}-{class_name2.__name__}"
 
     # name mangling
     def __method(self):
@@ -55,6 +58,7 @@ print(human.get_name())
 print(type("str()"))
 
 # it's purpose is that you can add additional functionalty to object rather than calling it in this way
+# it's called binding behavior
 print(human.__repr__())
 
 # representing reper and string in format

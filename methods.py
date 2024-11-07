@@ -8,6 +8,7 @@ class Example:
         cordinates = (self.x, self.y, self.z)
         yield from cordinates
 
+    # this is insteance method
     def getNameOfObject(self):
         return type(self)
 
