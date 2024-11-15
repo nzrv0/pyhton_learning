@@ -1,6 +1,8 @@
 from random import randint
 from timeit import repeat
 from buble_sort import buble_sort
+from recursive import fibonacci
+import sys
 
 
 def run_sorting_algorithm(algorithm, array):
@@ -13,7 +15,7 @@ def run_sorting_algorithm(algorithm, array):
 
     # Execute the code ten different times and return the time
     # in seconds that each execution took
-    times = repeat(setup=setup_code, stmt=stmt, repeat=3, number=10)
+    times = repeat(setup=setup_code, stmt=stmt, repeat=1, number=1)
 
     # Finally, display the name of the algorithm and the
     # minimum time it took to run
@@ -21,6 +23,6 @@ def run_sorting_algorithm(algorithm, array):
 
 
 if __name__ == "__main__":
-    ARRAY_LENGTH = 10000
+    ARRAY_LENGTH = 1000
     array = [randint(0, 1000) for i in range(ARRAY_LENGTH)]
-    run_sorting_algorithm(algorithm="buble_sort", array=array)
+    run_sorting_algorithm(algorithm=sys.argv[1], array=array)
