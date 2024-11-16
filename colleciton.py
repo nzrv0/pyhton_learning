@@ -43,8 +43,8 @@ print(letters_0 == letters_2, letters_2 == letters_1)
 
 ### count over dict elements
 counter = collections.Counter("asbcdf")
-counterDict = collections.Counter({"daf": 2, "dd": 2})  # values shoul be in integer
 counter["a"] = 4  # this is gonna replace
 counter.update(a=4)  # this is gonna sum 4 with init value
-
 print(counter)
+
+counterDict = collections.Counter({"daf": 2, "dd": 2})  # values shoul be in integer

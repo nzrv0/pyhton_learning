@@ -2,6 +2,7 @@ from random import randint
 from timeit import repeat
 from buble_sort import buble_sort
 from recursive import fibonacci
+from insert_sort import insert_sort
 import sys
 
 
