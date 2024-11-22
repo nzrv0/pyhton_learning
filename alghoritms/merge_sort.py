@@ -36,5 +36,7 @@ array = [2, 4, 5, 7, 3, 8]
 # right - 7, 3, 8 -> 3, 8 -> [7], [3, 8] -> [3, 7, 8]
 # resoult = [2, 3, 4, 5, 7, 8]
 
+
+# worst case O(nlog_2(n))
 resoult = merge_sort(array)
 print(resoult)

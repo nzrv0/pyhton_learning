@@ -21,9 +21,12 @@ array = [8, 2, 6, 4, 5]
 # 2, 8, 6, 4, 5
 # 2, 6, 8, 4, 5
 # k = 4
-# i = 3, j = 2, i = 2, j = 1 
+# i = 3, j = 2, i = 2, j = 1
 # 2, 6, 8, 8, 5
 # 2, 6, 6, 8, 5
 # 2, 4, 6, 8, 5
 
 insert_sort(array)
+
+# in the best case O(n)
+# worst case O(n^2)
