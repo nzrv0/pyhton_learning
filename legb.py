@@ -1,3 +1,4 @@
+# this is global scope
 var = ""
 
 
@@ -21,6 +22,9 @@ print(var())
 
 # there're other scope which callign buitlitn scope we can acccses it from anywere without or within improting it
 # print(dir(__builtins__))
+
+
+print(dir())
 
 
 # closure
