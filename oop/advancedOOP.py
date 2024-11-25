@@ -62,7 +62,7 @@ print(aa)
 
 # Abstract Base Classes(ABC)
 # In a sense, ABCs work as templates for other classes to inherit from.
-# you have to implement all of the methdos in your child classes from paretn
+# you have to implement all of the methdos in your child classes from parent
 from abc import ABC, abstractmethod
 
 
