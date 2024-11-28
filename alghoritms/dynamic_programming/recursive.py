@@ -22,8 +22,7 @@ print(fibonacci(4))
 # print([fibonacci(n) for n in range(10)])
 # best case O(1)
 # worst case O(2^n)
-# fibonnaci(5)
-# fibonacci
+
 
 
 def factorial(n):
