@@ -1,8 +1,10 @@
 from random import randint
 from timeit import repeat
 from buble_sort import buble_sort
-from recursive import fibonacci
+
+# from alghoritms.dynamic_programming.recursive import fibonacci
 from insert_sort import insert_sort
+from quick_sort import quick_sort
 import sys
 
 
@@ -24,6 +26,6 @@ def run_sorting_algorithm(algorithm, array):
 
 
 if __name__ == "__main__":
-    ARRAY_LENGTH = 1000
+    ARRAY_LENGTH = 10000
     array = [randint(0, 1000) for i in range(ARRAY_LENGTH)]
     run_sorting_algorithm(algorithm=sys.argv[1], array=array)
