@@ -7,14 +7,19 @@ class LinkedList:
         self.head = elem
 
     def add_last(self, elem):
-        current = self.head
-
-        if current:
-            while current.next:
-                current = current.next
-            current.next = elem
-        else:
+        # current = self.head
+        # if current:
+        #     while current.next:
+        #         current = current.next
+        #     current.next = elem
+        # else:
+        #     self.head = elem
+        if self.head is None:
             self.head = elem
+            return
+        for current_elem in self:
+            pass
+        current_elem.next = elem
 
     def __repr__(self) -> str:
         node = self.head
@@ -25,6 +30,12 @@ class LinkedList:
             node = node.next
         nodes.append("None")
         return " -> ".join(nodes)
+
+    def __iter__(self):
+        node = self.head
+        while node is not None:
+            yield node
+            node = node.next
 
 
 class Node:
@@ -45,4 +56,6 @@ llist.head = first_node
 llist.add_first(second_node)
 llist.add_last(third_node)
 
+for i in llist:
+    print(f"iterrrate {i}")
 print(llist)
