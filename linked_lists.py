@@ -28,6 +28,7 @@ class LinkedList:
         self.head = node
 
     def add_last(self, node):
+        
         for current_node in self:
             pass
         current_node.next = node
