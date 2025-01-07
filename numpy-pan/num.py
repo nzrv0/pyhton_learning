@@ -28,7 +28,6 @@ np.exp(cc * 1j)
 
 
 # operations
-
 a = np.array([20, 19, 30, 10])
 b = np.array([20])
 # print(a - b, a**2, 10 * np.sin(a), a < 20)
@@ -51,7 +50,9 @@ e += d
 examp = np.arange(12).reshape(3, 4)
 # print(examp.sum(axis=1), examp, sep="\n")
 
-np.random.seed(0)  # makes random numbers predictable, new usage default_rng()
+np.random.seed(
+    0
+)  # makes random numbers predictable, new usage default_rng() without this we will be always get the random values
 dd = np.random.randint(1, 100, size=(5, 3))
 # print(dd)
 
@@ -59,9 +60,8 @@ dd = np.random.randint(1, 100, size=(5, 3))
 # NumPy provides familiar mathematical functions such as sin, cos, and exp. In NumPy, these are called “universal functions” (ufunc).
 np.sin(a)
 np.cos(b)
-np.exp(a)
-cc = np.add(a, b)
-# print(cc)
+np.exp(a)  # this method calculatest e^n exponentional of e
+np.add(a, b)
 
 
 # Shape manipulation
@@ -79,18 +79,15 @@ ex2 = np.floor(10 * rg.random((2, 2)))
 np.vstack((ex1, ex2))  # appending in vertical axios
 np.hstack((ex1, ex2))  # appending in horizontal axios
 
-
 np.column_stack((ex1, ex2))  # for 2d arrays
 a1 = np.array([4.0, 2.0])
 b2 = np.array([3.0, 8.0])
 np.column_stack((a1, b2))
 
-a1[:, newaxis]  # returs 1 dimensional as a2 dim
-
+a1[:, newaxis]  # returs 1 dimensional as 2 dim
 np.hsplit(
     lb, 3
 )  # split an array along its horizontal axis, either by specifying the number of equally shaped arrays to return, or by specifying the columns after which the division should occur
-
 np.hsplit(lb, (3, 4))  # Split `a` after the third and the fourth column
 
 
@@ -107,12 +104,12 @@ id(a1)
 func(a1)
 
 
-c = a1.view()  #  # c is a view of the data owned by a1
+c = a1.view()  # c is a view of the data owned by a1
 c is a1  # False
-c.base is a1  # False
+c.base is a1  # True
 c.flags.owndata  # false
-c = c.reshape((2, 6))  # a1's shape doesn't change, reassigned c is still a view of a
-c[0, 4] = 1234  # a1's data changes
+# c = c.reshape((2, 6))  #gives error: a1's shape doesn't change , reassigned c is still a view of a
+c[0] = 1234  # a1's data changes
 
 
 d1 = a1.copy()  # The copy method makes a complete copy of the array and its data.
@@ -134,7 +131,7 @@ ll = np.fromfunction(f, (5, 4), dtype=int)
 # print(ll[...], ll[:])
 
 
-for el in a.flat:  # for iterating over the values
+for el in lb.flat:  # for iterating over the values
     # print(el)
     pass
 
@@ -142,13 +139,16 @@ for el in a.flat:  # for iterating over the values
 i = np.array([1, 1, 3, 8, 5])
 j = np.array([[3, 4], [9, 7]])
 # print(examp2[i], examp2[j], sep="\n")
+# [ 1  1  9 64 25]
+# [[ 9 16]
+#  [81 49]]
 
 
 # When the indexed array a is multidimensional, a single array of indices refers to the first dimension of a
 palette = np.array([[0, 0, 0], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255]])
 image = np.array([[0, 1, 2, 0], [0, 3, 4, 0]])
 palette[image]
-image[(0, 3)]
+image[(0, 3)], image[0][3]
 
 
 ed1 = np.arange(5)
@@ -163,7 +163,7 @@ a12[a12 > 4]
 bd1 = np.array([False, True, True])  # first dim selection
 bd2 = np.array([True, False, True, False])  # second dim selection
 a12[bd1, :]  # selecting rows
-a12[:, b2]  # selecting columns
+a12[:, bd2]  # selecting columns
 a12[bd1, bd2]
 
 
