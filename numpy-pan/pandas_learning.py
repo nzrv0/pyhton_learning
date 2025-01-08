@@ -4,11 +4,11 @@ import numpy as np
 # a one-dimensional labeled array holding data of any type such as integers, strings, Python objects etc.
 series = pd.Series([1, np.nan, 3, 4, "ss"])
 
-
-# a two-dimensional data structure that holds data like a two-dimension array or a table with rows and columns.
 dates = pd.date_range("20130101", periods=6)
 
+# a two-dimensional data structure that holds data like a two-dimension array or a table with rows and columns.
 df = pd.DataFrame(np.random.randn(6, 4), index=dates, columns=list("ABCD"))
+
 # print(df)
 
 df2 = pd.DataFrame(
@@ -22,6 +22,7 @@ df2 = pd.DataFrame(
     }
 )
 # print(df2.dtypes) # data has diffrenet types
+
 df2.head()  # deafult gives 4 element row but we can specifiy
 df2.tail()
 
@@ -45,7 +46,7 @@ df.T
 # sort_index with axis=0 sorts the index, and this ordering is then used to set the order of the rows.
 # sort_index with axis=1 sorts the column headers, and this ordering is then used to set the order of the columns.
 
-df.sort_index(axis=1, ascending=False)  # this same with df.sort_index(ascending=False)
+df.sort_index(axis=0, ascending=False)  # this same with df.sort_index(ascending=False)
 
 # sorting by the values
 df.sort_values(by="B")
@@ -108,8 +109,8 @@ df.mean()  # finding mean value. also we can find mean value by rows with axis=1
 df.sub(s1, axis="index")  # substracts element rows with this values
 
 # user defined functions
-df.agg(lambda x: np.mean(x) * 5.6)  # calculates by column
-df.transform(lambda x: x * 101.2)  # calculates by column
+dd = df.agg(lambda x: np.mean(x) * 5.6)  # calculates by column
+dt = df.transform(lambda x: x * 101.2)  # calculates by row
 
 df.value_counts()  # counts uniqe values
 
@@ -125,7 +126,8 @@ pp = pd.concat(pieces)
 # enables SQL style join types
 left = pd.DataFrame({"key": ["foo", "foo"], "lval": [1, 2]})
 right = pd.DataFrame({"key": ["foo", "foo"], "rval": [4, 5]})
-pd.merge(left, right, on="key")
+ds = pd.merge(left, right, on="key")
+# print(ds)
 
 
 ### Grouping
@@ -137,8 +139,12 @@ df123 = pd.DataFrame(
         "D": np.random.randn(8),
     }
 )
-df123.groupby("A")[["C", "D"]].sum()  # get sum of columsn c and d for grouping by A
-df123.groupby(["A", "B"]).sum()
+dss = df123.groupby("A")[
+    ["C", "D"]
+].sum()  # get sum of columsn c and d for grouping by A
+# print(dss)
+
+dsss = df123.groupby(["A", "B"]).sum()
 
 
 ### Reshaping
@@ -148,11 +154,23 @@ arrays = [
 ]
 index = pd.MultiIndex.from_arrays(arrays, names=["first", "second"])
 df403 = pd.DataFrame(np.random.randn(8, 2), index=index, columns=["A", "B"])
+# print(df403)
 stacked = df403.stack(
     future_stack=True
 )  # method “compresses” a level in the DataFrame’s columns
+# print(stacked)
+
 stacked.unstack()
 
 
 # pivot table
 df = pd.pivot_table(df, values="D", index=["A", "B"], columns=["C"])
+
+
+# Categoricals
+df101 = pd.DataFrame(
+    {"id": [1, 2, 3, 4, 5, 6], "raw_grade": ["a", "b", "b", "a", "a", "e"]}
+)
+df101["grade"] = df101["raw_grade"].astype("category")
+print(df101["grade"])
+
