@@ -4,7 +4,6 @@ from abc import ABC, abstractmethod
 
 
 class Product(ABC):
-
     @abstractmethod
     def cook(self):
         pass
@@ -39,7 +38,6 @@ class CremeBrulee(Product):
 
 
 class Factory(ABC):
-
     @abstractmethod
     def get_dish(type_of_meal):
         pass
