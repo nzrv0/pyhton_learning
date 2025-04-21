@@ -49,11 +49,10 @@ def iterrateover(items):
     # antoher way to write code on above
     # yield from items
 
-
 # generator iterator
 for i in iterrateover(b):
     print(f"this is iterrateover function values {i}")
 
 # generator expression
 gg = (i for i in range(10))
-print(gg)
+print(next(gg), next(gg))
