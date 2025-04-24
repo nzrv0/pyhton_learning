@@ -32,9 +32,9 @@ class FlyweightFactory:
         return self.fylweights[key]
 
     def list_flyweights(self):
-        count = len(self._flyweights)
+        count = len(self.fylweights)
         print(f"FlyweightFactory: I have {count} flyweights:")
-        print("\n".join(map(str, self._flyweights.keys())), end="")
+        print("\n".join(map(str, self.fylweights.keys())), end="")
 
 
 def add_car_to_police_database(
