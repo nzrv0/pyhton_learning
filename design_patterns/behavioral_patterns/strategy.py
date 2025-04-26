@@ -35,6 +35,7 @@ class Item:
         return f"{self.name} has total {self.name}"
 
 
+# Context
 class ShoppingCart:
     def __init__(self):
         self.items = []

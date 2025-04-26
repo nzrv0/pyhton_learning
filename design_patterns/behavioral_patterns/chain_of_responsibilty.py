@@ -14,7 +14,7 @@ class AuthenticationMiddleware(Middleware):
             return True
         else:
             print("Authentication middleware: Authentication failed")
-            return super().handle_request(request)
+            return None
 
     def authenticate(self, request):
         """Implement authentication logic here."""
@@ -26,7 +26,7 @@ class LoggingMiddleware(Middleware):
         print("Logging middleware: Logging request")
         if request:
             return "Login succsefful"
-        return super().handle_request(request)
+        return None
 
 
 class DataValidationMiddleware(Middleware):
@@ -37,7 +37,7 @@ class DataValidationMiddleware(Middleware):
 
         else:
             print("Data Validation middleware: Invalid data")
-            return super().handle_request(request)
+            return None
 
     def validate_data(self, request):
         """Implement data validation logic here."""

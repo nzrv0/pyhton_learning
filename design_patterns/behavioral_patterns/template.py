@@ -8,12 +8,15 @@ class Meal(ABC):
         self.cook()
         self.serve()
 
+    @abstractmethod
     def prepare_ingredients(self):
         raise NotImplementedError()
 
+    @abstractmethod
     def cook(self):
         raise NotImplementedError()
 
+    @abstractmethod
     def serve(self):
         raise NotImplementedError()
 
